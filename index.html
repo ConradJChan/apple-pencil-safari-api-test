@@ -1,48 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Touch API Test</title>
-  <style>
-    body {
-      position: absolute;
-      margin: 0;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      font-family: sans-serif;
-      font-size: 13px;
-      padding: 1em;
-      box-sizing: border-box;
-    }
-    h1 {
-      margin-top: 0;
-      color: #ccc;
-    }
-    canvas {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      left: 0;
-      top: 0;
-    }
-    #info {
-      z-index: 1;
-      position: absolute;
-      bottom: 1em;
-    }
-  </style>
-</head>
-<body>
-  <h1>Demo of Apple Pencil / 3D touch API</h1>
-  <div id="force"></div>
-  <div id="touches"></div>
-  <canvas>Sorry, your browser is too old for this demo.</canvas>
-  <div id="info">
-    <a href="https://github.com/quietshu/apple-pencil-safari-api-test" target="_blank">GitHub</a>
-  </div>
-  <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Touch API Test</title>
+    <style>
+      body {
+        position: absolute;
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        font-family: sans-serif;
+        font-size: 13px;
+        padding: 1em;
+        box-sizing: border-box;
+      }
+      h1 {
+        margin-top: 0;
+        color: #ccc;
+      }
+      canvas {
+        position: absolute;
+        width: 33%;
+        height: 50%;
+        left: 0;
+        top: 0;
+      }
+      #info {
+        z-index: 1;
+        position: absolute;
+        bottom: 1em;
+      }
+      .render-container {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 50%;
+        left: 0;
+        display: flex;
+      }
+      .toolbar {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .svg-container {
+        flex: 1 1 auto;
+        position: relative;
+      }
+
+      .svg-container span {
+        position: absolute;
+        font-size: 60px;
+        color: rgba(0, 0, 0, 0.2);
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo of touch and force based web drawing</h1>
+    <div id="force"></div>
+    <div id="touches"></div>
+    <canvas>Sorry, your browser is too old for this demo.</canvas>
+    <div id="info"></div>
+    <div class="render-container">
+      <div class="toolbar">
+        <button class="toggle-btn" type="button">Toggle Points</button>
+        <button class="render-btn" type="button">Render as SVG</button>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
 </html>
